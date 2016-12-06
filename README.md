@@ -1,13 +1,15 @@
 # How to make this work
 
-### On the master server
+## On the master server
 
-1. Ensure that redis-server is running:
+1. Install redis-server if you don't have it already:
+   `sudo apt-get install redis-server`
+2. Ensure that redis-server is running:
    `start service redis-server`
-2. Execute the script that generates and enqueues jobs
+3. Execute the script that generates and enqueues jobs
    `python3 enqueue_jobs.py`
 
-### On the worker server
+## On the worker server
 Start a worker, and ensure it listens to the Redis queue on the master server by using the configuration file:  
 `rq worker -c worker_conf.py`
 
